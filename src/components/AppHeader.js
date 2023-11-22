@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const AppHeader = (props) => {
   // const appTitle = "";
-  const appTitle = useSelector((state) => state.appTitle);
+  const appTitle = useSelector((state) => state.moviesState.appTitle);
   const displayFavorites = true;
 
   return (
