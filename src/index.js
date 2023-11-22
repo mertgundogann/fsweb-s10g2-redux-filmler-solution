@@ -6,14 +6,19 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
-import { legacy_createStore as createStore } from "redux";
+import { legacy_createStore as createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 
+import logger from "redux-logger";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const dukkan = createStore(reducer, applyMiddleware(logger));
+
 root.render(
   <BrowserRouter>
-    <Provider store={createStore(reducer)}>
+    <Provider store={dukkan}>
       <App />
     </Provider>
   </BrowserRouter>
