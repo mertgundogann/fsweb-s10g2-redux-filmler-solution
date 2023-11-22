@@ -24,7 +24,13 @@ const AddMovieForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: ADD_MOVIE, payload: movie });
+    dispatch({
+      type: ADD_MOVIE,
+      payload: {
+        ...movie,
+        id: Date.now(),
+      },
+    });
     push("/movies");
   };
 
